@@ -32,6 +32,10 @@ import java.io.IOException;
  * <code>javax.servlet.GenericServlet</code> or an HTTP servlet that
  * extends <code>javax.servlet.http.HttpServlet</code>.
  *
+ *
+ * 可以通过继承<code>javax.servlet.GenericServlet</code>来编写一个通用的servlet.
+ * 或者继承<code>javax.servlet.http.HttpServlet</code>来实现一个HTTP servlet.
+ *
  * <p>This interface defines methods to initialize a servlet,
  * to service requests, and to remove a servlet from the server.
  * These are known as life-cycle methods and are called in the
@@ -62,6 +66,7 @@ public interface Servlet {
     /**
      * Called by the servlet container to indicate to a servlet that the 
      * servlet is being placed into service.
+     *
      *
      * <p>The servlet container calls the <code>init</code>
      * method exactly once after instantiating the servlet.

@@ -23,24 +23,26 @@ import java.util.EventListener;
  * Interface for receiving notification events about ServletContext
  * lifecycle changes.
  *
- * <p>In order to receive these notification events, the implementation
- * class must be either declared in the deployment descriptor of the web
- * application, annotated with {@link javax.servlet.annotation.WebListener},
- * or registered via one of the addListener methods defined on
- * {@link ServletContext}.
+ * 用于接收和ServletContext生命周期更改有关的事件通知接口.
  *
- * <p>Implementations of this interface are invoked at their
- * {@link #contextInitialized} method in the order in which they have been
- * declared, and at their {@link #contextDestroyed} method in reverse
- * order.
+ * {@link javax.servlet.http.HttpSessionListener} 是用于接收有关HttpSession生命周期更改的通知事件的接口.
+ *
+ * 声明方式和{@link javax.servlet.http.HttpSessionListener}一样
+ *
+ * 此接口的实现在其{@link #contextInitialized}方法中按声明它们的顺序调用,
+ * 在其{@link #contextDestroyed}方法中按相反的顺序调用.
  *
  * @see ServletContextEvent
+ * @see javax.servlet.http.HttpSessionListener
  *
  * @since Servlet 2.3
  */
 public interface ServletContextListener extends EventListener {
 
     /**
+     *
+     * 接收web应用程序初始化程序正在启动的通知.
+     *
      * Receives notification that the web application initialization
      * process is starting.
      *
@@ -48,8 +50,10 @@ public interface ServletContextListener extends EventListener {
      * initialization before any filters or servlets in the web
      * application are initialized.
      *
-     * @param sce the ServletContextEvent containing the ServletContext
-     * that is being initialized
+     * <p>在初始化web应用程序中的任何过滤器或servlet之前,
+     * 所有的ServletContextListeners都会收到上下文初始化的通知.
+     *
+     * @param sce 包含正在初始化的ServletContext的ServletContextEvent
      *
      * @implSpec
      * The default implementation takes no action.
@@ -59,6 +63,8 @@ public interface ServletContextListener extends EventListener {
     /**
      * Receives notification that the ServletContext is about to be
      * shut down.
+     *
+     * 接收servlet上下文即将关闭的通知.
      *
      * <p>All servlets and filters will have been destroyed before any
      * ServletContextListeners are notified of context

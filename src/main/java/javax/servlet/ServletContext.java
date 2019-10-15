@@ -28,9 +28,15 @@ import java.util.Set;
 import javax.servlet.descriptor.JspConfigDescriptor;
 
 /**
+ * 定义servlet用于与其所在的servlet容器通信的一组方法,例如,获取文件的MIME类型、分派请求或写入日志文件.
+ *
+ * <p>对于每个Java虚拟机,每个"web application"都有一个上下文.
+ *
  * Defines a set of methods that a servlet uses to communicate with its
  * servlet container, for example, to get the MIME type of a file,
  * dispatch requests, or write to a log file.
+ *
+ *
  *
  * <p>There is one context per "web application" per Java Virtual Machine.  (A
  * "web application" is a collection of servlets and content installed under a
@@ -79,6 +85,8 @@ public interface ServletContext {
 
     /**
      * Returns the context path of the web application.
+     *
+     * 返回web应用的上下文路径
      *
      * <p>The context path is the portion of the request URI that is used
      * to select the context of the request. The context path always comes
@@ -732,6 +740,8 @@ public interface ServletContext {
     /**
      * Adds the servlet with the given name and class name to this servlet
      * context.
+     *
+     * 将具有给定名称和类名的servlet添加到这servlet上下文.
      *
      * <p>The registered servlet may be further configured via the returned
      * {@link ServletRegistration} object.

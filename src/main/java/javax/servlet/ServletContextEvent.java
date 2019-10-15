@@ -20,6 +20,8 @@ package javax.servlet;
 /** 
  * This is the event class for notifications about changes to
  * the servlet context of a web application.
+ *
+ * 用于通知web应用程序servlet上下文的更改的事件类.
  * @see ServletContextListener
  *
  * @since Servlet 2.3

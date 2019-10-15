@@ -101,12 +101,18 @@ public interface ServletRegistration extends Registration {
      * Interface through which a {@link Servlet} registered via one of the
      * <tt>addServlet</tt> methods on {@link ServletContext} may be further
      * configured.
+     *
+     * 进一步配置通过{@link ServletContext}中的<tt>addServlet</tt>注册进来的servlet
+     *
      */
     interface Dynamic extends ServletRegistration, Registration.Dynamic {
 
         /**
          * Sets the <code>loadOnStartup</code> priority on the Servlet
          * represented by this dynamic ServletRegistration.
+         *
+         * 设置此动态ServletRegistration所代表的Servlet上的<code>loadOnStartup</code>优先级.
+         *
          *
          * <p>A <tt>loadOnStartup</tt> value of greater than or equal to
          * zero indicates to the container the initialization priority of
@@ -117,10 +123,15 @@ public interface ServletRegistration extends Registration {
          * at their {@link ServletContextListener#contextInitialized}
          * method.
          *
+         * 大于或等于0的<tt>loadOnStartup</tt>值向容器表示Servlet的初始化优先级别.
+         * 在这种情况下,容器必须在ServletContext的初始化阶段实例化和初始化Servlet,
+         * 也就是说,在它调用了为ServletContext在其{@link ServletContextListener#contextInitialized}方法上配置的所有ServletContextListener对象之后.
+         *
+         *
          * <p>If <tt>loadOnStartup</tt> is a negative integer, the container
          * is free to instantiate and initialize the Servlet lazily.
          *
-         * <p>The default value for <tt>loadOnStartup</tt> is <code>-1</code>.
+         * 默认<tt>loadOnStartup</tt>是<code>-1</code>.
          *
          * <p>A call to this method overrides any previous setting.
          *

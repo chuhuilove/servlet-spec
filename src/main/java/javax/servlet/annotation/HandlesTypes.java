@@ -50,6 +50,10 @@ import java.lang.annotation.RetentionPolicy;
  * {@link javax.servlet.ServletContainerInitializer
  * ServletContainerInitializer} can handle.
  *
+ *
+ * 这个注解被用来声明{@link javax.servlet.ServletContainerInitializer ServletContainerInitializer}
+ * 可以处理的class类型
+ *
  * @see javax.servlet.ServletContainerInitializer
  *
  * @since Servlet 3.0

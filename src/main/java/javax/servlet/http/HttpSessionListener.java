@@ -23,11 +23,16 @@ import java.util.EventListener;
  * Interface for receiving notification events about HttpSession
  * lifecycle changes.
  *
- * <p>In order to receive these notification events, the implementation
- * class must be either declared in the deployment descriptor of the web
- * application, annotated with {@link javax.servlet.annotation.WebListener},
- * or registered via one of the addListener methods defined on
- * {@link javax.servlet.ServletContext}.
+ * 用于接收有关HttpSession生命周期更改的通知事件的接口.
+ *
+ * 为了接收这些通知事件,实现类必须在web应用程序的部署描述符中声明,声明方式有两种:
+ *
+ * 1.使用{@link javax.servlet.annotation.WebListener}注解
+ * 2. 通过{@link javax.servlet.ServletContext}中的{@code addListener}注册
+ *
+ *
+ * 这个接口的实现在它们的{@link #sessionCreated}方法中按声明它们的顺序调用,
+ * 在它们的{@link #sessionDestroyed}方法中按相反的顺序调用.
  *
  * <p>Implementations of this interface are invoked at their
  * {@link #sessionCreated} method in the order in which they have been
@@ -42,6 +47,7 @@ public interface HttpSessionListener extends EventListener {
     
     /** 
      * Receives notification that a session has been created.
+     * 接收创建session的通知
      *
      * @implSpec
      * The default implementation takes no action.
@@ -52,6 +58,7 @@ public interface HttpSessionListener extends EventListener {
     
     /** 
      * Receives notification that a session is about to be invalidated.
+     * 接收session即将失效的通知
      *
      * @implSpec
      * The default implementation takes no action.

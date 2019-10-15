@@ -21,6 +21,8 @@ package javax.servlet.http;
  * This is the class representing event notifications for changes to
  * sessions within a web application.
  *
+ * 这个类表示web应用程序中session更改的事件通知.
+ *
  * @since Servlet 2.3
  */
 public class HttpSessionEvent extends java.util.EventObject {
@@ -38,6 +40,7 @@ public class HttpSessionEvent extends java.util.EventObject {
 
     /**
      * Return the session that changed.
+     * 返回已经更改的session
      * @return the {@link HttpSession} for this event.
      */
     public HttpSession getSession () { 

@@ -44,6 +44,8 @@ import java.util.Map;
 import java.util.Set;
 
 /**
+ * 通过该接口可以进一步配置{@link Servlet}或{@link Filter}
+ *
  * Interface through which a {@link Servlet} or {@link Filter} may be
  * further configured.
  *
