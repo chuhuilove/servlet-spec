@@ -43,20 +43,29 @@ package javax.servlet;
 import java.util.Set;
 
 /**
+ * 接口，该接口允许在web应用程序的启动阶段通知库/运行时，并执行servlet、过滤器和侦听器的任何必需的程序化注册以响应它。
  *
- *
- *
- *
+ * 该接口允许库  在web程序启动的阶段
  * Interface which allows a library/runtime to be notified of a web
  * application's startup phase and perform any required programmatic
  * registration of servlets, filters, and listeners in response to it.
+ *
+ *
+ * 实现这个接口的类可以使用{@link javax.servlet.annotation.HandlesTypes HandlesTypes}进行注解,
+ * 为了(在它们的onStartup方法中)接收一组应用程序类，这些应用程序类实现、扩展或已经用注释指定的类类型进行了注释。
+ *
  *
  * <p>Implementations of this interface may be annotated with
  * {@link javax.servlet.annotation.HandlesTypes HandlesTypes}, in order to
  * receive (at their {@link #onStartup} method) the Set of application
  * classes that implement, extend, or have been annotated with the class
  * types specified by the annotation.
- * 
+ *
+ *
+ * 如果这个接口的实现没有使用HandlesTypes注解,
+ * 或者没有一个应用程序类与注解指定的类匹配,
+ * 则容器必须向{@link #onStartup}传递一个<tt>null</tt>集合.
+ *
  * <p>If an implementation of this interface does not use <tt>HandlesTypes</tt>
  * annotation, or none of the application classes match the ones specified
  * by the annotation, the container must pass a <tt>null</tt> Set of classes
